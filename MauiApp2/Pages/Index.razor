@@ -1,0 +1,18 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<button @onclick=ScheduleVibration>Schedule vibration 3 seconds from now</button>
+
+@code {
+    private async Task ScheduleVibration()
+    {
+        var _3seconds = TimeSpan.FromSeconds(3);
+        await Task.Delay(_3seconds);
+        Vibration.Default.Vibrate(_3seconds);
+    }
+}
